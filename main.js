@@ -1,6 +1,4 @@
 const canvas = document.querySelector('canvas')
-const genBtn = document.querySelector('#gen')
-const solBtn = document.querySelector('#sol')
 const ctx = canvas.getContext('2d')
 canvas.width = 600
 canvas.height = 500
@@ -10,7 +8,7 @@ let grid = []
 let log = []
 let stack = []
 
-const scale = 10
+const scale = 20
 const cols = Math.floor(canvas.height / scale)
 const rows = Math.floor(canvas.width / scale)
 
