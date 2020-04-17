@@ -10,7 +10,9 @@
 <style>
   .container {
     display: grid;
-    grid-template-columns: 600px 200px;
+    grid-template-columns: 1fr;
+    grid-template-columns: auto;
+    justify-content: center;
     gap: 1em;
   }
 </style>
@@ -19,7 +21,7 @@
   <div class="container">
     <canvas></canvas>
     <div class="btns">
-
+      <button id="solve">solve</button>
     </div>
   </div>
   <script src="cell.js"></script>

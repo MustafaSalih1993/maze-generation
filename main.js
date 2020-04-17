@@ -1,8 +1,12 @@
 const canvas = document.querySelector('canvas')
+const solveBtn = document.querySelector('#solve')
 const ctx = canvas.getContext('2d')
 canvas.width = 600
 canvas.height = 500
 canvas.style.backgroundColor = '#F2F2F2'
+
+solveBtn.addEventListener('click', mngSolve)
+solveBtn.disabled = true
 
 let grid = []
 let log = []
@@ -13,7 +17,6 @@ const cols = Math.floor(canvas.height / scale)
 const rows = Math.floor(canvas.width / scale)
 
 initGrid()
-drawGrid()
 
 // init these variables here after init the grid
 const start = grid[0][0]
@@ -21,6 +24,13 @@ let current = grid[0][0]
 const end = grid[rows - 1][cols - 1]
 stack.push(current)
 current.solved = true
+
+function mngSolve() {
+  solveBtn.classList.remove('button-primary')
+  solveBtn.disabled = true
+  solveBtn.removeEventListener('click', mngSolve)
+  solve()
+}
 
 function initGrid() {
   for (let i = 0; i < rows; i++) {
@@ -92,9 +102,10 @@ function startMaze() {
   }
 }
 
-function solve() {
+async function solve() {
   if (current == end) return
-  if (current !== end) {
+  while (current !== end) {
+    await sleep(25)
     let nn = current.getNeighbors()
     if (nn) {
       if (nn[0]) {
@@ -122,6 +133,9 @@ function solve() {
   }
 }
 
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms))
+}
 
 
 
@@ -150,7 +164,8 @@ function animate() {
     drawGrid()
     startMaze()
     if (!log.length) {
-      solve()
+      solveBtn.classList.add('button-primary')
+      solveBtn.disabled = false
     }
     if (stack.length) {
       drawSolve()
