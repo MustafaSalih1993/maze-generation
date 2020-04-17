@@ -1,8 +1,8 @@
 const canvas = document.querySelector('canvas')
 const solveBtn = document.querySelector('#solve')
 const ctx = canvas.getContext('2d')
-canvas.width = 600
-canvas.height = 500
+canvas.width = Math.floor(window.innerWidth - 20)
+canvas.height = Math.floor(window.innerHeight - 100)
 canvas.style.backgroundColor = '#F2F2F2'
 
 solveBtn.addEventListener('click', mngSolve)
@@ -19,9 +19,9 @@ const rows = Math.floor(canvas.width / scale)
 initGrid()
 
 // init these variables here after init the grid
-const start = grid[0][0]
-let current = grid[0][0]
-const end = grid[rows - 1][cols - 1]
+let current = grid[0][Math.floor(cols / 2)]
+const start = current
+const end = grid[rows - 1][Math.floor(cols / 2)]
 stack.push(current)
 current.solved = true
 
