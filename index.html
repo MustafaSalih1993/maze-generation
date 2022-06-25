@@ -1,32 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css"
+    />
+    <title>Maze</title>
+  </head>
+  <style>
+    .container {
+      display: grid;
+      width: 100%;
+      grid-template-columns: 1fr;
+      grid-template-columns: auto;
+      justify-content: center;
+      gap: 1em;
+    }
+  </style>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
-  <title>Maze</title>
-</head>
-<style>
-  .container {
-    display: grid;
-    width: 100%;
-    grid-template-columns: 1fr;
-    grid-template-columns: auto;
-    justify-content: center;
-    gap: 1em;
-  }
-</style>
-
-<body>
-  <div class="container">
-    <canvas></canvas>
-    <div class="btns">
-      <button id="solve">solve</button>
+  <body>
+    <div class="container">
+      <canvas></canvas>
+      <div class="btns">
+        <button id="solve">solve</button>
+        <button id="reset">reset</button>
+      </div>
     </div>
-  </div>
-  <script src="cell.js"></script>
-  <script src="main.js"></script>
-</body>
-
+    <script src="cell.js"></script>
+    <script src="main.js"></script>
+  </body>
 </html>
